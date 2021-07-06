@@ -1,0 +1,40 @@
+version: "3"
+services:
+    nginx:
+        # 镜像
+        image: openresty/openresty:stretch-fat
+        #容器名称
+        container_name: "openresty"
+        #映射端口
+        ports:
+            - "80:80"
+            - "443:443"
+        environment:
+            - TZ=Asia/Shanghai
+        volumes:
+            - "/disk2/nginx/nginx.conf:/etc/nginx/nginx.conf"
+            - "/disk2/nginx/config:/etc/nginx/config"
+            - "/disk2/nginx/vhost:/etc/nginx/conf.d"
+            - "/disk2/nginx/cert:/etc/nginx/cert"
+            - "/disk2/www:/usr/share/nginx/html"
+            - "/disk2/nginx/log:/var/log/nginx"
+            - "/disk2/nginx/lua:/etc/nginx/lua"
+        restart: always
+        networks:
+            - net-app
+    php:
+        image: registry.cn-guangzhou.aliyuncs.com/ranblogs/php:7.4-fpm
+        container_name: "php"
+        environment:
+            - TZ=Asia/Shanghai
+        volumes:
+            - "/disk2/www:/usr/share/nginx/html"
+            - "/disk2/php/php.ini:/usr/local/etc/php/php.ini"
+            - "/disk2/php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf"
+        restart: always
+        networks:
+            - net-app
+
+networks:
+    net-app:
+        driver: bridge
