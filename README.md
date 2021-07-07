@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# my-docker-compose
-my-docker-compose
-=======
 # 快速构建php环境docker-compose
 
 使用方法:
@@ -14,4 +10,3 @@ git clone xxxx
 ```
 docker-compose up -d
 ```
->>>>>>> master
