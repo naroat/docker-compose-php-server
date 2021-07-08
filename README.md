@@ -1,4 +1,4 @@
-# 快速构建php环境docker-compose
+# docker-compose快速搭建php环境
 
 使用方法:
 - 拉取项目
