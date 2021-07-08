@@ -6,7 +6,11 @@
 git clone xxxx
 ```
 
-- 运行docker-compose
+- 运行
 ```
+1:进入php-server文件目录, 或者把php-server移动到其他位置
+cd my-docker-compose/php-server/
+
+2: 运行
 docker-compose up -d
 ```
