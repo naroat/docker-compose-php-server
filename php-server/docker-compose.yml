@@ -41,6 +41,7 @@ services:
             - "${MYSQL_PORT}:${MYSQL_PORT}"
         environment:
             - TZ=Asia/Shanghai
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
         volumes:
             - "./mysql/data:/var/lib/mysql"
             - "./mysql/my.cnf:/etc/my.cnf"
