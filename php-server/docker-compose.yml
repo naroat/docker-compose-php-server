@@ -43,7 +43,7 @@ services:
             - TZ=Asia/Shanghai
         volumes:
             - "./mysql/data:/var/lib/mysql"
-            - "./mysql/conf/my.cnf:/etc/my.cnf"
+            - "./mysql/my.cnf:/etc/my.cnf"
         restart: always
         networks:
             - net-app
