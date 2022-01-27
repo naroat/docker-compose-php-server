@@ -59,6 +59,8 @@ services:
             - "./redis/data:/data"
             - "./redis/logs:/logs"
             - "./redis/redis.conf:/usr/local/etc/redis/redis.conf"
+        command:
+            /bin/bash -c "redis-server /usr/local/etc/redis/redis.conf"
         restart: always
         networks:
             - net-app
